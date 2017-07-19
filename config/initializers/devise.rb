@@ -133,7 +133,7 @@
   config.sign_out_via = :delete
 
   config.case_insensitive_keys = [:email]
-  config.secret_key = Rails.application.secrets.secret_key_base
+  config.secret_key = '<%= ENV["SECRET_KEY_BASE"] %>' if Rails.env == 'production'
 
   # keep old config
   config.email_regexp = /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/
