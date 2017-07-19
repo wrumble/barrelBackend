@@ -10,8 +10,8 @@ Rails.application.configure do
      :port => 587,
      :domain => "barrelhq.com",
      :authentication => :login,
-     :user_name => Rails.application.secrets.mailerEmail,
-     :password => Rails.application.secrets.mailerEmailPasswor
+     :user_name => ENV["mailerEmail"],
+     :password => ENV["mailerEmailPassword"]
    }
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -74,7 +74,7 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  config.secret_key_base = Rails.application.secrets.secret_key_base
+  config.secret_key_base = ENV["secret_key_base"]
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
